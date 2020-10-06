@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.harrypotterapp.adapter.AdapterCharacter;
+import com.example.harrypotterapp.model.Character;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -50,6 +52,7 @@ public class ContenidoActivity extends AppCompatActivity {
     private void processCharacter(String data) {
         try {
             JSONArray root = new JSONArray(data);
+            List<Character> list = new ArrayList<>();
 
             for(int i = 0; i<root.length();i++) {
                 JSONObject character = root.getJSONObject(i);
@@ -65,9 +68,18 @@ public class ContenidoActivity extends AppCompatActivity {
                 String alive = character.getString("alive");
                 String image = character.getString("image");
 
-
+                Character charac = new Character(name,species,gender,house,dateOfBirth,patronus,hogwartsStudent,actor,alive,image);
+                list.add(charac);
             }
 
+            RecyclerView rc = findViewById(R.id.rc_character);
+            AdapterCharacter ac = new AdapterCharacter(this,list,R.layout.item_character);
+            LinearLayoutManager lm = new LinearLayoutManager(this);
+           lm.setOrientation(RecyclerView.VERTICAL);
+
+
+           rc.setLayoutManager(lm);
+           rc.setAdapter(ac);
 
         } catch (JSONException e) {
             e.printStackTrace();
