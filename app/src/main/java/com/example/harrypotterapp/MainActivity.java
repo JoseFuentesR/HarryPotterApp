@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         txt_pass = findViewById(R.id.txt_pass);
     }
 
-    public void start(View view) {
+
+    public void star(View view) {
         if (txt_count.getText().toString().isEmpty() || txt_pass.getText().toString().isEmpty()){
             Toast.makeText(this,"Complete camps",Toast.LENGTH_SHORT).show();
         }else{
@@ -33,12 +34,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,"Count or pass is incorrect",Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-
-
-    public void developers(View view) {
-        Intent i = new Intent(this,AboutActivity.class);
-        startActivity(i);
     }
 }
