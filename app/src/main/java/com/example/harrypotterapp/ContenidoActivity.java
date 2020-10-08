@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -28,8 +31,15 @@ public class ContenidoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contenido);
-        processHttp();
+
+       if (hayInternet()){
+           setContentView(R.layout.activity_contenido);
+           processHttp();
+       }else {
+           setContentView(R.layout.emtpy_internet_activity);
+       }
+
+
     }
 
     public void processHttp(){
@@ -85,5 +95,18 @@ public class ContenidoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+        public boolean hayInternet(){
+            boolean connected = false ;
+            ConnectivityManager connectivityManager;
+            connectivityManager = (ConnectivityManager) this.getSystemService(CONNECTIVITY_SERVICE);
 
+            Network []  networks = connectivityManager.getAllNetworks();
+            for (Network network : networks){
+                NetworkInfo info = connectivityManager.getNetworkInfo(network);
+                if (info.isConnected()){
+                    connected = true;
+                }
+            }
+            return connected;
+        }
 }
