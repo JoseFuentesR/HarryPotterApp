@@ -35,4 +35,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void developers(View view) {
+        Intent i = new Intent(this,AboutActivity.class);
+        startActivity(i);
+    }
 }
