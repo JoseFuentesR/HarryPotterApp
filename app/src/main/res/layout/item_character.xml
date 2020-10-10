@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Harry Potter"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textStyle="bold"
         android:textColor="#fff"
         android:layout_marginTop="5dp"
@@ -33,12 +33,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gryffindor"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:textColor="#fff"
         android:layout_marginBottom="15dp"
         />
+
+    <TextView
+        android:id="@+id/item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/item_patronus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/item_howarts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/item_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/item_actor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/item_aliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/item_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>
